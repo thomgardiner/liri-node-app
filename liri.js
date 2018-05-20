@@ -17,7 +17,7 @@ let twitterParams = {
     count: 5
 };
 
-let callSpotify = function(){
+const callSpotify = function(){
 
     if(searchterm == undefined){
         searchterm = "The Sign Ace of Base";
@@ -37,8 +37,8 @@ let callSpotify = function(){
             // console.log(newdata);
     })
 }
-1
-let callTwitter = function(){
+
+const callTwitter = function(){
     client.get('statuses/user_timeline', twitterParams, function(error, tweets, response) {
         if (!error) {
           for(i=0; i < tweets.length; i++){
@@ -50,7 +50,7 @@ let callTwitter = function(){
       })
 }
 
-let callOMDB = function(){
+const callOMDB = function(){
 
 
     if(searchterm == undefined){
@@ -84,7 +84,7 @@ fs.appendFile("log.txt", command + " " + searchterm + ", ", function(err){
     console.log("log.txt was updated!");
 })
 
-let getCommand = function(){
+const getCommand = function(){
     fs.readFile("random.txt", "utf8", function(error, data) {
 
         if (error) {
@@ -99,7 +99,7 @@ let getCommand = function(){
       });
 }
 
-let logic = function(command){
+const logic = function(command){
 
     if(command == "my-tweets"){
         callTwitter();
